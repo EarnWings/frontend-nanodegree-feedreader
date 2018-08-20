@@ -60,8 +60,8 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('is hidden by default', function() {
-            const htmlBody = $('body');
-            expect(htmlBody.hasClass('menu-hidden')).toEqual(true);
+            const htmlBody = document.querySelector('body');
+            expect(htmlBody.classList.contains('menu-hidden')).toEqual(true);
         });
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -69,14 +69,14 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('changes visibility when the menu icon is clicked', function() {
-            const htmlBody = $('body');
-            const menuIcon = $('.menu-icon-link');
+            const htmlBody = document.querySelector('body');
+            const menuIcon = document.querySelector('.menu-icon-link');
 
             menuIcon.click();
-            expect(htmlBody.hasClass('menu-hidden')).toEqual(false);
+            expect(htmlBody.classList.contains('menu-hidden')).toEqual(false);
 
             menuIcon.click();
-            expect(htmlBody.hasClass('menu-hidden')).toEqual(true);
+            expect(htmlBody.classList.contains('menu-hidden')).toEqual(true);
         });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -87,7 +87,14 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
+
+        it('completes its work', function() {
+            const feed = document.querySelector('.feed');
+            expect(feed.children.length > 0).toEqual(true);
+        });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
