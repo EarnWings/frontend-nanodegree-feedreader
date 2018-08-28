@@ -82,7 +82,7 @@ $(function() {
         it('completes its work', function() {
             const feed = document.querySelector('.feed');
             const entries = feed.querySelector('.entry');
-            expect(entries.length > 0).toBe(true);
+            expect(entries.innerHTML.length > 0).toBe(true);
         });
     });
 
