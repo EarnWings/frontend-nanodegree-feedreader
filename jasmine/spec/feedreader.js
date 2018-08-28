@@ -93,13 +93,13 @@ $(function() {
          */
         const feed = document.querySelector('.feed');
         const feed1 = [];
+        const feed2 = [];
 
         beforeEach(function(done) {
-            loadFeed(0);
+            loadFeed(0, loadFeed(1, done));
             Array.from(feed.children).forEach(function(entry) {
                 feed1.push(entry.innerText);
             });
-            loadFeed(1, done);
         });
 
         it('content changes', function() {
