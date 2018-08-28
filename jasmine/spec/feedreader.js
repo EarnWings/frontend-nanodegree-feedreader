@@ -51,7 +51,7 @@ $(function() {
          */
         it('is hidden by default', function() {
             const htmlBody = document.querySelector('body');
-            expect(htmlBody.classList.contains('menu-hidden')).toBe(true);
+            expect(htmlBody.hasClass('menu-hidden')).toBe(true);
         });
          /* This test ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -63,10 +63,10 @@ $(function() {
             const menuIcon = document.querySelector('.menu-icon-link');
 
             menuIcon.click();
-            expect(htmlBody.classList.contains('menu-hidden')).toBe(false);
+            expect(htmlBody.hasClass('menu-hidden')).toBe(false);
 
             menuIcon.click();
-            expect(htmlBody.classList.contains('menu-hidden')).toBe(true);
+            expect(htmlBody.hasClass('menu-hidden')).toBe(true);
         });
     });
     /* This test suite tests that there is at least 1 feed with info */
