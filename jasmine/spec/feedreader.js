@@ -37,10 +37,9 @@ $(function() {
          * and that the name is not empty.
          */
         it('names are defined and not empty', function() {
-            for (i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed) {
+                expect(feed.name).toBeTruthy();
+            }) 
         });
     });
 
