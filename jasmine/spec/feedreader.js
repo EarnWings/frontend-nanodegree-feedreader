@@ -26,10 +26,10 @@ $(function() {
          * and that the URL is not empty.
          */
         it('urls are defined and not empty', function() {
-            for (i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed) {
+                expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toBe(0);
+            });
         });
 
 
